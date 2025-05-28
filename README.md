@@ -148,11 +148,15 @@ You'll need to run the backend server and the frontend development server in sep
 
 ## Directory Structure (Simplified)
 
-
-## Contributing
-
-Contributions to improve this template are welcome! Please feel free to fork the repository, make your changes, and submit a pull request. If you encounter any issues or have suggestions, please open an issue.
-
-## License
-
-This project is licensed under the ISC License. You can find the license details in the `client/package.json` and `server/package.json` files. It's recommended to also add a `LICENSE` file to the root of your repository containing the full ISC license text.
+/portfolio-template
+├── client/ # React Frontend Application
+│ ├── public/ # Static assets, index.html template
+│ ├── src/ # React components, JS/JSX files (entry: src/index.jsx)
+│ ├── package.json
+│ └── webpack.config.js # Webpack configuration for client
+├── server/ # Node.js/Express Backend API
+│ ├── db/ # Database related files (e.g., populatedb.js)
+│ ├── .env # (You create this) Environment variables
+│ ├── package.json
+│ └── server.js # Main Express server entry point
+└── README.md
