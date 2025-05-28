@@ -1,36 +1,65 @@
 // client/webpack.config.js
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
-  entry: './src/index.jsx',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.js',
-    clean: true,
-  },
-  devServer: {
-    static: './dist',
-    port: 3000,
-    proxy: {
-      '/api': 'http://localhost:5000',
+module.exports = (env, argv) => {
+  const isDevelopment = argv.mode === 'development';
+
+  return {
+    mode: isDevelopment ? 'development' : 'production',
+    entry: './src/index.jsx',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
+      publicPath: '/',
+      clean: true,
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: 'babel-loader',
+        },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+      }),
     ],
-  },
-  plugins: [new HtmlWebpackPlugin({ template: 'public/index.html' })],
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+    devServer: {
+      static: {
+        directory: path.resolve(__dirname, 'public'),
+      },
+      port: 3000,
+      hot: true,
+      open: true,
+      historyApiFallback: true, // or { index: '/index.html' }
+      proxy: [ // Ensure this is an array
+        {
+          context: ['/api'], // This is the key: define which paths to proxy
+          target: 'http://localhost:5000', // Your backend server
+          secure: false, // If your backend is not HTTPS
+          changeOrigin: true, // Recommended for most cases
+          logLevel: 'debug', // Optional: for more detailed proxy logging
+          // pathRewrite: { '^/api': '' }, // Uncomment if backend routes don't start with /api
+        },
+        // You can add more proxy configurations here if needed
+        // {
+        //   context: ['/auth'],
+        //   target: 'http://localhost:5001',
+        //   ...
+        // }
+      ],
+    },
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
+  };
 };
