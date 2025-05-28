@@ -6,9 +6,9 @@ export default function App() {
 
   useEffect(() => {
     fetch('/api/hello') // 1. Fetching from /api/hello (Good, matches proxy intent)
-      .then(res => res.json()) // 2. Expecting a JSON response
-      .then(data => setMessage(data.message)) // 3. Setting state with data.message
-      .catch(err => console.error("Error fetching data:", err));
+      .then((res) => res.json()) // 2. Expecting a JSON response
+      .then((data) => setMessage(data.message)) // 3. Setting state with data.message
+      .catch((err) => console.error('Error fetching data:', err));
   }, []); // Runs once on component mount
 
   return (

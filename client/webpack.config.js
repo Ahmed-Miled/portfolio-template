@@ -43,7 +43,8 @@ module.exports = (env, argv) => {
       hot: true,
       open: true,
       historyApiFallback: true, // or { index: '/index.html' }
-      proxy: [ // Ensure this is an array
+      proxy: [
+        // Ensure this is an array
         {
           context: ['/api'], // This is the key: define which paths to proxy
           target: 'http://localhost:5000', // Your backend server

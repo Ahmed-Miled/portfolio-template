@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-template",
+  "version": "1.0.0",
+  "description": "A full-stack web application template designed to kickstart your portfolio projects. It features a React frontend with Webpack and a Node.js/Express backend connected to a PostgreSQL database.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,json,css,scss,md,html}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,css,scss,md,html}\" --ignore-path .gitignore",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:client": "npm start --prefix client",
+    "start:server": "npm start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmed-Miled/portfolio-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmed-Miled/portfolio-template/issues"
+  },
+  "homepage": "https://github.com/Ahmed-Miled/portfolio-template#readme",
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}

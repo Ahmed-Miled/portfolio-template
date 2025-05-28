@@ -1,4 +1,4 @@
-import pool from './index.js'
+import pool from './index.js';
 
 const createTables = async () => {
   await pool.query(`
@@ -44,10 +44,10 @@ const createTables = async () => {
       end_date DATE,
       description TEXT
     );
-  `)
+  `);
 
-  console.log('✅ Tables created')
-}
+  console.log('✅ Tables created');
+};
 
 const seedData = async () => {
   await pool.query(`
@@ -69,20 +69,20 @@ const seedData = async () => {
     INSERT INTO education (institution, degree, start_date, end_date, description)
     VALUES 
       ('University of CS', 'Bachelor in CS', '2018-09-01', '2022-06-30', 'Learned programming and databases.');
-  `)
+  `);
 
-  console.log('✅ Data seeded')
-}
+  console.log('✅ Data seeded');
+};
 
 const init = async () => {
   try {
-    await createTables()
-    await seedData()
+    await createTables();
+    await seedData();
   } catch (err) {
-    console.error('❌ Error:', err)
+    console.error('❌ Error:', err);
   } finally {
-    await pool.end()
+    await pool.end();
   }
-}
+};
 
-init()
+init();

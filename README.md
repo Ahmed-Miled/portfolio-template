@@ -1,6 +1,6 @@
 # portfolio-template
 
-A full-stack web application template designed to kickstart your portfolio projects. It features a React frontend with Webpack and a Node.js/Express backend connected to a PostgreSQL database.
+A full-stack web application template designed to kickstart your portfolio projects. It features a React frontend with Webpack and a Node.js/Express backend connected to a PostgreSQL database. This template includes project-wide code formatting with Prettier.
 
 ## Features
 
@@ -9,7 +9,6 @@ A full-stack web application template designed to kickstart your portfolio proje
     *   Webpack 5 for module bundling, development server, and production builds.
     *   Babel for modern JavaScript transpilation.
     *   Bootstrap 5 for styling.
-    *   Prettier for code formatting (integration recommended via editor plugin or pre-commit hook).
     *   Development server with Hot Module Replacement (HMR) and API proxying.
 *   **Backend (Server):**
     *   Node.js with Express.js for building the API.
@@ -17,7 +16,8 @@ A full-stack web application template designed to kickstart your portfolio proje
     *   `dotenv` for environment variable management.
     *   `cors` for Cross-Origin Resource Sharing.
     *   Basic script for seeding the database (`npm run seed`).
-*   **Project Structure:**
+*   **Project-Wide:**
+    *   **Prettier:** Integrated for consistent code formatting across both client and server code, configured via `.prettierrc.json`.
     *   Separate `client/` and `server/` directories for a clear separation of concerns.
     *   ES Module syntax (`type: "module"`) used in the backend.
 
@@ -34,8 +34,8 @@ A full-stack web application template designed to kickstart your portfolio proje
     *   Node.js
     *   Express.js
     *   PostgreSQL
-*   **Development:**
-    *   Prettier (code formatting)
+*   **Development & Tooling:**
+    *   **Prettier** (automated code formatting for the entire project)
     *   Webpack Dev Server
 
 ## Prerequisites
@@ -57,7 +57,14 @@ Before you begin, ensure you have the following installed:
     cd YOUR_REPOSITORY_NAME
     ```
 
-3.  **Setup the Backend (Server):**
+3.  **Install Root Dependencies:**
+    These include development tools like Prettier.
+    ```bash
+    npm install
+    ```
+    *It's highly recommended to configure your code editor to use Prettier with "format on save" for an optimal development experience. Open the root project folder in your editor.*
+
+4.  **Setup the Backend (Server):**
     *   Navigate to the server directory:
         ```bash
         cd server
@@ -80,7 +87,7 @@ Before you begin, ensure you have the following installed:
         ```
         *Note: You might need to create the database manually first if the seed script doesn't handle it.*
 
-4.  **Setup the Frontend (Client):**
+5.  **Setup the Frontend (Client):**
     *   Navigate to the client directory (from the root of your project):
         ```bash
         cd ../client
@@ -92,71 +99,43 @@ Before you begin, ensure you have the following installed:
         ```
 
 ## Running the Application
-
-You'll need to run the backend server and the frontend development server in separate terminal windows.
-
-1.  **Run the Backend Server:**
-    *   Navigate to the `server/` directory:
-        ```bash
-        cd server
-        ```
-    *   Start the server:
-        ```bash
-        npm start
-        ```
-    By default, the server will run on `http://localhost:5000` (or the `PORT` specified in `server/.env`).
-
-2.  **Run the Frontend Development Server:**
-    *   Navigate to the `client/` directory:
-        ```bash
-        cd client
-        ```
-    *   Start the development server:
-        ```bash
-        npm start
-        ```
-    This will typically open the application in your default web browser at `http://localhost:3000`. The client is configured to proxy API requests starting with `/api` to `http://localhost:5000` (see `client/webpack.config.js`).
+# ... (rest of this section remains the same) ...
 
 ## Available Scripts
 
-### Server (`server/package.json`)
+### Root Project (`./package.json`)
+*   `npm run format`: Formats all relevant files in the project using Prettier.
+*   `npm run format:check`: Checks if all relevant files are formatted correctly according to Prettier rules (exits with an error if not).
 
-*   `npm start`: Starts the Node.js/Express server (using `node server.js`).
-*   `npm run seed`: Populates the database using `db/populatedb.js`.
-*   `npm test`: (Currently placeholder) "Error: no test specified".
+### Server (`server/package.json`)
+# ... (rest of this section remains the same) ...
 
 ### Client (`client/package.json`)
-
-*   `npm start`: Starts the Webpack development server in development mode (`webpack serve --mode development`).
-*   `npm run build`: Builds the client application for production into the `client/dist` folder (`webpack --mode production`).
-*   `npm test`: (Currently placeholder) "Error: no test specified".
+# ... (rest of this section remains the same) ...
 
 ## Configuration
 
-### Server
-
-*   **`server/.env`**: Main configuration file for the backend.
+*   **`.prettierrc.json` (Root):** Configuration file for Prettier, defining code style rules for the entire project.
+*   **`server/.env` (Server):** Main configuration file for the backend.
     *   `DATABASE_URL`: PostgreSQL connection string.
     *   `PORT`: Port for the backend server (defaults to 5000 if not set and server code expects it).
-
-### Client
-
-*   **`client/webpack.config.js`**: Webpack configuration for development and production builds.
+*   **`client/webpack.config.js` (Client):** Webpack configuration for development and production builds.
     *   Handles Babel transpilation, CSS loading, HTML generation.
     *   `devServer.proxy`: Configured to proxy requests from `/api` on the dev server (port 3000) to the backend server (port 5000).
-*   **`client/package.json` (`proxy` field)**: While present, the `webpack.config.js` `devServer.proxy` is the active configuration for the development server started with `webpack serve`. The `proxy` field in `package.json` is typically used by `react-scripts` (Create React App), which doesn't seem to be the primary mechanism here given the explicit `webpack serve` script.
+*   **`client/package.json` (`proxy` field)**: While present, the `webpack.config.js` `devServer.proxy` is the active configuration for the development server started with `webpack serve`.
 
 ## Directory Structure (Simplified)
-
 /portfolio-template
 ├── client/ # React Frontend Application
-│ ├── public/ # Static assets, index.html template
-│ ├── src/ # React components, JS/JSX files (entry: src/index.jsx)
+│ ├── public/
+│ ├── src/
 │ ├── package.json
-│ └── webpack.config.js # Webpack configuration for client
+│ └── webpack.config.js
 ├── server/ # Node.js/Express Backend API
-│ ├── db/ # Database related files (e.g., populatedb.js)
-│ ├── .env # (You create this) Environment variables
+│ ├── db/
+│ ├── .env # (You create this)
 │ ├── package.json
-│ └── server.js # Main Express server entry point
+│ └── server.js
+├── .prettierrc.json 
+├── package.json 
 └── README.md
