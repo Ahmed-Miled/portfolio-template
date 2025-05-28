@@ -161,8 +161,6 @@ You'll need to run the backend server and the frontend development server in sep
 
 ## Directory Structure (Simplified)
 
-## Directory Structure (Simplified)
-
 /portfolio-template
 ├── client/ <br>
 │ ├── public/<br>
