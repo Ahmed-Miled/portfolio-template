@@ -164,16 +164,16 @@ You'll need to run the backend server and the frontend development server in sep
 ## Directory Structure (Simplified)
 
 /portfolio-template
-├── client/ # React Frontend Application
-│ ├── public/
-│ ├── src/
-│ ├── package.json
-│ └── webpack.config.js
-├── server/ # Node.js/Express Backend API
-│ ├── db/
-│ ├── .env # (You create this)
-│ ├── package.json
-│ └── server.js
-├── .prettierrc.json
-├── package.json
-└── README.md
+├── client/ <br>
+│ ├── public/<br>
+│ ├── src/<br>
+│ ├── package.json<br>
+│ └── webpack.config.js<br>
+├── server/ <br>
+│ ├── db/ <br>
+│ ├── .env # (You create this) <br>
+│ ├── package.json <br>
+│ └── server.js<br>
+├── .prettierrc.json<br>
+├── package.json<br>
+└── README.md<br>
