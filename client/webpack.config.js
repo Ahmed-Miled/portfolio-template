@@ -46,7 +46,7 @@ module.exports = (env, argv) => {
       proxy: [
         // Ensure this is an array
         {
-          context: ['/api'], // This is the key: define which paths to proxy
+          context: ['/services/api'], // This is the key: define which paths to proxy
           target: 'http://localhost:5000', // Your backend server
           secure: false, // If your backend is not HTTPS
           changeOrigin: true, // Recommended for most cases
