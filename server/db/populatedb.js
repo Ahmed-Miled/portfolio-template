@@ -61,8 +61,8 @@ const seedData = async () => {
     -- Projects
     INSERT INTO projects (title, description, tags, github_link, demo_link, image_url)
     VALUES 
-      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['React', 'Node', 'PostgreSQL'], 'https://github.com/ahmed/portfolio', 'https://ahmed.dev', 'https://via.placeholder.com/150'),
-      ('E-commerce App', 'Full-stack e-commerce platform.', ARRAY['React', 'Express', 'PostgreSQL'], 'https://github.com/ahmed/shop', 'https://shop.ahmed.dev', 'https://via.placeholder.com/150');
+      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['React', 'Node', 'PostgreSQL'], 'https://github.com/ahmed/portfolio', 'https://ahmed.dev', '/images/project1.jpg'),
+      ('E-commerce App', 'Full-stack e-commerce platform.', ARRAY['React', 'Express', 'PostgreSQL'], 'https://github.com/ahmed/shop', 'https://shop.ahmed.dev', '/images/project1.jpg');
 
     -- Skills
     INSERT INTO skills (name, level, category)
