@@ -1,3 +1,4 @@
+// client/src/pages/Skills.jsx
 import React from 'react';
 import SkillsSection from '../components/SkillsSection';
 import PageWrapper from '../components/PageWrapper';

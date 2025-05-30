@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Skills from './pages/Skills';
-import Experience from './pages/Experience';
+import Education from './pages/Education';
 import Home from './pages/Home';
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className="container-fluid px-0 px-md-3 mt-4">
+      <div className="container-fluid px-0 px-md-3">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10">
             <div className="d-flex flex-column flex-md-row">
@@ -28,7 +28,7 @@ export default function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/skills" element={<Skills />} />
-                  <Route path="/experience" element={<Experience />} />
+                  <Route path="/education" element={<Education />} />
                   <Route path="/about" element={<About />} />
                 </Routes>
               </div>

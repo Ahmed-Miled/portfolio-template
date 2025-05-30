@@ -32,7 +32,9 @@ export default function Navbar({ isOpen, onClose }) {
     'position-md-static',
     'bg-md-transparent',
     'p-md-0',
-    'shadow-md-none'
+    'shadow-md-none',
+    'justify-content-md-end',
+    'me-md-3'
   );
 
   const combinedNavClasses = [...navBaseClasses, ...dynamicNavClasses].join(
@@ -66,8 +68,8 @@ export default function Navbar({ isOpen, onClose }) {
         <NavLink to="/skills" className={linkStyle} onClick={onClose}>
           Skills
         </NavLink>
-        <NavLink to="/experience" className={linkStyle} onClick={onClose}>
-          Experience
+        <NavLink to="/education" className={linkStyle} onClick={onClose}>
+          Education
         </NavLink>
         <NavLink to="/about" className={linkStyle} onClick={onClose}>
           About

@@ -1,12 +1,14 @@
+
+// client/src/pages/Education.jsx
 import React from 'react';
-import ExperienceSection from '../components/ExperienceSection';
+import EducationSection from '../components/EducationSection';
 import PageWrapper from '../components/PageWrapper';
 
-export default function Experience() {
+export default function Education() {
   return (
     <div className="container mt-4">
       <PageWrapper>
-        <ExperienceSection />
+        <EducationSection />
       </PageWrapper>
     </div>
   );

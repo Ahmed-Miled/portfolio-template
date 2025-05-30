@@ -32,11 +32,13 @@ export default function FeaturedProjects() {
                 <h6 className="card-title">{project.title}</h6>
                 <p className="card-text">{project.description}</p>
                 <div className="mt-auto">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="badge bg-secondary me-1">
-                      {tag}
-                    </span>
-                  ))}
+                  {project.tags.map((tag, i) =>
+                    tag === 'Featured' ? null : (
+                      <span key={i} className="badge bg-secondary me-1">
+                        {tag}
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
             </div>
