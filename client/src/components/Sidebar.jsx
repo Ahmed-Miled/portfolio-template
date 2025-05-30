@@ -1,4 +1,3 @@
-// client/src/components/Sidebar.jsx
 import React from 'react';
 import {
   FaEnvelope,
@@ -7,14 +6,24 @@ import {
   FaMapMarkerAlt,
   FaLinkedin,
   FaGithub,
+  FaBars,
 } from 'react-icons/fa';
 
-export default function Sidebar() {
+export default function Sidebar({ onToggleMenu }) {
   return (
     <aside
-      className="bg-dark text-white p-4 rounded shadow d-flex flex-column align-items-center sticky-top"
+      className="bg-dark text-white p-4 rounded shadow position-relative d-flex flex-column align-items-center sticky-top"
       style={{ top: '20px', minHeight: '90vh' }}
     >
+      {/* Toggle button only on small screens */}
+      <button
+        className="btn btn-outline-light position-absolute top-0 end-0 m-2 d-md-none"
+        onClick={onToggleMenu}
+        aria-label="Toggle menu"
+      >
+        <FaBars />
+      </button>
+
       <img
         src="/images/avatar.jpeg"
         alt="Profile"

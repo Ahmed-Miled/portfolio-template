@@ -38,7 +38,7 @@ export default function HomeContent() {
   };
 
   return (
-    <div className="p-3">
+    <div>
       {/* Projects Section */}
       <section className="mb-5">
         <h2 className="mb-4 border-bottom pb-2">My Projects</h2>
