@@ -65,9 +65,6 @@ export default function Navbar({ isOpen, onClose }) {
         <NavLink to="/projects" className={linkStyle} onClick={onClose}>
           Projects
         </NavLink>
-        <NavLink to="/skills" className={linkStyle} onClick={onClose}>
-          Skills
-        </NavLink>
         <NavLink to="/education" className={linkStyle} onClick={onClose}>
           Education
         </NavLink>

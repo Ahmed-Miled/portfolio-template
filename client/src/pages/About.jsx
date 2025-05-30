@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutSection from '../components/AboutSection';
+import Skills from '../pages/Skills';
 import PageWrapper from '../components/PageWrapper';
 
 export default function About() {
@@ -7,6 +8,7 @@ export default function About() {
     <div className="container mt-4">
       <PageWrapper>
         <AboutSection />
+        <Skills />
       </PageWrapper>
     </div>
   );
