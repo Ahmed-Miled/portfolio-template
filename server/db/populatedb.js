@@ -61,8 +61,10 @@ const seedData = async () => {
     -- Projects
     INSERT INTO projects (title, description, tags, github_link, demo_link, image_url)
     VALUES 
-      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['React', 'Node', 'PostgreSQL'], 'https://github.com/ahmed/portfolio', 'https://ahmed.dev', '/images/project1.jpg'),
-      ('E-commerce App', 'Full-stack e-commerce platform.', ARRAY['React', 'Express', 'PostgreSQL'], 'https://github.com/ahmed/shop', 'https://shop.ahmed.dev', '/images/project1.jpg');
+      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['Game', 'AI', 'Frontend'], 'https://github.com/ahmed/portfolio', 'https://github.com/Ahmed-Miled/dashboard2', '/images/project1.jpg'),
+      ('Shopping Cart', 'A modern e-commerce shopping cart built with React and JavaScript.', ARRAY['Featured', 'Web Dev', 'Full Stack'], 'https://github.com/Ahmed-Miled/Shopping-Cart', 'https://bie3-bie3.netlify.app/shop', '/images/project2.png'),
+      ('Memory Game', 'A fun memory matching game created with vanilla JavaScript.', ARRAY['Featured', 'Game', 'AI', 'Frontend'], 'https://github.com/Ahmed-Miled/MemoryCard', 'https://jeux-de-memoire.netlify.app/', '/images/project3.png'),
+      ('Tic Tac Toe', 'A classic Tic Tac Toe game implemented in HTML, CSS, and JavaScript.', ARRAY['Featured', 'Web Dev', 'Full Stack'], 'https://github.com/Ahmed-Miled/tic-tac-toe', 'https://ahmed-miled.github.io/tic-tac-toe/', '/images/project4.png');
 
     -- Skills
     INSERT INTO skills (name, level, category)
