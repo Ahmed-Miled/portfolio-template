@@ -33,7 +33,7 @@ export default function SkillsSection() {
 
       {Object.entries(grouped).map(([category, skillList]) => (
         <div key={category} className="mb-4">
-          <h4 className="text-muted mb-3">{category}</h4>
+          <h4 className="text-secondary mb-3">{category}</h4>
           <div className="row">
             {skillList.map(skill => (
               <div key={skill.id} className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">

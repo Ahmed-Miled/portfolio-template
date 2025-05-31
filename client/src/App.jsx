@@ -1,3 +1,4 @@
+// client/src/App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -17,13 +18,25 @@ export default function App() {
       <div className="container-fluid px-0 px-md-3">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10">
-            <div className="d-flex flex-column flex-md-row">
+            <div className="d-flex flex-column flex-md-row" >
+              
               <div className="col-12 col-md-3 mb-4 mb-md-0">
-                <Sidebar onToggleMenu={() => setShowNavbar(!showNavbar)} />
+                <div
+                  style={{
+                    position: 'sticky',
+                    top: '20px',
+                    alignSelf: 'flex-start', // ensure sticky container sizes properly in flex
+                  }}
+                >
+                  <Sidebar onToggleMenu={() => setShowNavbar(!showNavbar)} />
+                </div>
               </div>
 
               <div className="col-12 col-md-9">
-                <Navbar isOpen={showNavbar} onClose={() => setShowNavbar(false)} />
+                <Navbar
+                  isOpen={showNavbar}
+                  onClose={() => setShowNavbar(false)}
+                />
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/projects" element={<Projects />} />

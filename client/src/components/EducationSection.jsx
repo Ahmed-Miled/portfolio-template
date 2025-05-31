@@ -26,7 +26,7 @@ export default function EducationSection() {
         <div key={edu.id} className="card mb-3 shadow-sm border-0">
           <div className="card-body">
             <h5 className="card-title">{edu.institution}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">
+            <h6 className="card-subtitle mb-2 text-secondary">
               {edu.degree} ({formatDate(edu.start_date)} - {formatDate(edu.end_date)})
             </h6>
             {edu.description && <p className="card-text">{edu.description}</p>}

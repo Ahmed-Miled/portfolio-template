@@ -12,12 +12,11 @@ import {
 export default function Sidebar({ onToggleMenu }) {
   return (
     <aside
-      className="p-4 rounded shadow position-relative d-flex flex-column align-items-center sticky-top"
+      className="p-4 rounded shadow d-flex flex-column align-items-center justify-content-center "
       style={{
-        top: '20px',
-        minHeight: '90vh',
         backgroundColor: 'var(--sidebar-bg)',
         color: 'var(--sidebar-text)',
+        minHeight: '90vh'
       }}
     >
       <button

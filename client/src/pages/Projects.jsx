@@ -35,7 +35,7 @@ export default function Projects() {
           <button
             key={tag}
             onClick={() => handleTag(tag)}
-            className={`btn btn-sm me-2 ${tag === activeTag ? 'btn-dark' : 'btn-outline-dark'}`}
+            className={`tag-btn btn btn-sm me-2 ${tag === activeTag ? 'active' : ''}`}
           >
             {tag}
           </button>

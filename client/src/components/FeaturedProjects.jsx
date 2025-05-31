@@ -34,7 +34,14 @@ export default function FeaturedProjects() {
                 <div className="mt-auto">
                   {project.tags.map((tag, i) =>
                     tag === 'Featured' ? null : (
-                      <span key={i} className="badge bg-secondary me-1">
+                      <span
+                        key={i}
+                        className="badge mb-3 me-1 text-wrap text-center"
+                        style={{
+                          backgroundColor: 'var(--sidebar-border)',
+                          color: 'var(--sidebar-text)',
+                        }}
+                      >
                         {tag}
                       </span>
                     )
