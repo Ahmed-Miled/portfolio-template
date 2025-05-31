@@ -1,19 +1,7 @@
-/**/
 :root {
   --bg-color: #ffffff;
   --text-color: #212529;
   --card-bg: #f8f9fa;
-}
-
-
-
-[data-theme='dark'] {
-  --bg-color: #121212;
-  --text-color: #f8f9f9;
-  --card-bg: #1e1e1e;
-}
-  
-:root {
   --sidebar-bg: #f8f9fa;
   --sidebar-text: #212529;
   --sidebar-border: #dee2e6;
@@ -22,23 +10,57 @@
 }
 
 [data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #f8f9f9;
+  --card-bg: #1e1e1e;
   --sidebar-bg: #1e1e1e;
   --sidebar-text: #f8f9fa;
   --sidebar-border: #2c2c2c;
   --sidebar-button: #f8f9fa;
   --sidebar-link: #66b2ff;
 }
+
+/* Theme-based body and elements */
 body {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.card, .navbar, .form-control {
+.card,
+.navbar,
+.form-control {
   background-color: var(--card-bg) !important;
   color: var(--text-color) !important;
 }
 
-a, p, h1, h2, h3, h4, h5, h6, span {
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
   color: var(--text-color) !important;
+}
+
+/* Mobile nav background */
+.mobile-nav {
+  background-color: var(--sidebar-bg) !important;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .nav-link {
+    color: var(--sidebar-text);
+  }
+
+  .btn.btn-outline-light {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--sidebar-border);
+  }
 }

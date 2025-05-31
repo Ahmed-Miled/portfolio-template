@@ -1,12 +1,16 @@
 // client/src/components/Navbar.jsx
-import React from 'react';
+
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
+import { ThemeContext } from '../context/ThemeContext';
 
 export default function Navbar({ isOpen, onClose }) {
+  const { theme } = useContext(ThemeContext);
+
   const linkStyle = ({ isActive }) =>
-    `nav-link ${isActive ? 'fw-bold text-dark' : 'text-muted'}`;
+    `nav-link ${isActive ? 'fw-bold' : theme === 'dark' ? 'text-white' : 'text-body-secondary'}`;
 
   // Base classes for the nav element
   const navBaseClasses = ['nav', 'gap-2'];
@@ -22,7 +26,8 @@ export default function Navbar({ isOpen, onClose }) {
       'end-0',
       'bg-body',
       'p-3',
-      'shadow-lg'
+      'shadow-lg',
+      'mobile-nav'
     );
   } else {
     dynamicNavClasses.push('d-none');
@@ -45,8 +50,9 @@ export default function Navbar({ isOpen, onClose }) {
   const navStyle = isOpen ? { zIndex: 1050 } : {};
 
   return (
-      <div className={`mb-4 border-bottom pb-2 ${isOpen ? 'position-relative' : ''}`}>
-
+    <div
+      className={`mb-4 border-bottom pb-2 ${isOpen ? 'position-relative' : ''}`}
+    >
       <nav className={combinedNavClasses} style={navStyle}>
         {isOpen && (
           <div className="d-md-none d-flex justify-content-end mb-2">
@@ -76,8 +82,8 @@ export default function Navbar({ isOpen, onClose }) {
           Contact
         </NavLink>
         <div className="d-flex align-items-center ms-auto">
-        <ThemeToggle />
-      </div>
+          <ThemeToggle />
+        </div>
       </nav>
     </div>
   );
