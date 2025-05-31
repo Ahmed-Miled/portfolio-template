@@ -1,7 +1,8 @@
 // routes/education.js
-const express = require('express');
+
+import express from 'express';
+import pool from '../db/index.js';
 const router = express.Router();
-const pool = require('../db/index.js'); // PostgreSQL connection
 
 router.get('/', async (req, res) => {
   try {
@@ -13,4 +14,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
