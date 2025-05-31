@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar({ isOpen, onClose }) {
   const linkStyle = ({ isActive }) =>
@@ -74,6 +75,9 @@ export default function Navbar({ isOpen, onClose }) {
         <NavLink to="/contact" className={linkStyle} onClick={onClose}>
           Contact
         </NavLink>
+        <div className="d-flex align-items-center ms-auto">
+        <ThemeToggle />
+      </div>
       </nav>
     </div>
   );
