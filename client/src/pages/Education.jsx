@@ -1,4 +1,3 @@
-
 // client/src/pages/Education.jsx
 import React from 'react';
 import EducationSection from '../components/EducationSection';

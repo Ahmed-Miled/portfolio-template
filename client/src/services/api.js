@@ -1,5 +1,6 @@
 // client/src/services/api.js
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/services/api'; // Your server URL
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL || 'http://localhost:5000/services/api'; // Your server URL
 
 export const getProjects = async () => {
   const response = await fetch(`${API_BASE_URL}/projects`);

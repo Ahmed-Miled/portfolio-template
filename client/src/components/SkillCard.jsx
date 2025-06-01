@@ -6,7 +6,7 @@ export default function SkillCard({ skill }) {
     Beginner: 'secondary',
     Intermediate: 'warning',
     Advanced: 'success',
-    Expert: 'dark'
+    Expert: 'dark',
   };
 
   return (

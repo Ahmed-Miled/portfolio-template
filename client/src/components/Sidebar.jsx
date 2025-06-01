@@ -16,7 +16,7 @@ export default function Sidebar({ onToggleMenu }) {
       style={{
         backgroundColor: 'var(--sidebar-bg)',
         color: 'var(--sidebar-text)',
-        minHeight: '90vh'
+        minHeight: '90vh',
       }}
     >
       <button

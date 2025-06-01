@@ -7,7 +7,7 @@ export default function EducationSection() {
 
   useEffect(() => {
     fetch('/services/api/education')
-      .then((res) => res.ok ? res.json() : Promise.reject(res.statusText))
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
       .then((data) => {
         setEducation(data);
         setError('');
@@ -27,7 +27,8 @@ export default function EducationSection() {
           <div className="card-body">
             <h5 className="card-title">{edu.institution}</h5>
             <h6 className="card-subtitle mb-2 text-secondary">
-              {edu.degree} ({formatDate(edu.start_date)} - {formatDate(edu.end_date)})
+              {edu.degree} ({formatDate(edu.start_date)} -{' '}
+              {formatDate(edu.end_date)})
             </h6>
             {edu.description && <p className="card-text">{edu.description}</p>}
           </div>
@@ -41,6 +42,6 @@ function formatDate(date) {
   if (!date) return 'Present';
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'short'
+    month: 'short',
   });
 }

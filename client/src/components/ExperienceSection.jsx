@@ -9,7 +9,8 @@ export default function ExperienceSection() {
   useEffect(() => {
     fetch('/services/api/experiences')
       .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch experience: ${res.status}`);
+        if (!res.ok)
+          throw new Error(`Failed to fetch experience: ${res.status}`);
         return res.json();
       })
       .then((data) => {

@@ -28,6 +28,6 @@ export default function AboutSection() {
           collaborating with others to build impactful software.
         </p>
       </div>
-      </>
+    </>
   );
 }

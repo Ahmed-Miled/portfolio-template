@@ -5,9 +5,7 @@ import HomeContent from '../components/HomeContent';
 export default function Home() {
   return (
     <div className="d-flex flex-column flex-md-row container-fluid ">
-      
-
-        <HomeContent />
+      <HomeContent />
     </div>
   );
 }
