@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProjectList from '../components/ProjectList';
 import PageWrapper from '../components/PageWrapper';
 
-//const TAGS = ['All', 'Web Dev', 'AI', 'Mobile', 'Game', 'Other'];
-const TAGS = ['All', 'Web Dev', 'Full Stack', 'Frontend', 'Backend', 'AI', 'Game'];
 
+const TAGS = ['All', 'Web Dev', 'Full Stack', 'Frontend', 'Backend', 'AI', 'Game', 'Live'];
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);

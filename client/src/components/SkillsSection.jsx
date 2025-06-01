@@ -8,12 +8,12 @@ export default function SkillsSection() {
 
   useEffect(() => {
     fetch('/services/api/skills')
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .then(data => {
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then((data) => {
         setSkills(data);
         setError('');
       })
-      .catch(err => {
+      .catch((err) => {
         setSkills([]);
         setError(`Error: ${err}`);
       });
@@ -34,9 +34,9 @@ export default function SkillsSection() {
       {Object.entries(grouped).map(([category, skillList]) => (
         <div key={category} className="mb-4">
           <h4 className="text-secondary mb-3">{category}</h4>
-          <div className="row">
-            {skillList.map(skill => (
-              <div key={skill.id} className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+          <div className="d-flex flex-wrap gap-2">
+            {skillList.map((skill) => (
+              <div key={skill.id} className="d-inline-block">
                 <SkillCard skill={skill} />
               </div>
             ))}

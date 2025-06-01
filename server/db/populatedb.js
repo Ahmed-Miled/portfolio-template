@@ -61,17 +61,32 @@ const seedData = async () => {
     -- Projects
     INSERT INTO projects (title, description, tags, github_link, demo_link, image_url)
     VALUES 
-      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['Game', 'AI', 'Frontend'], 'https://github.com/ahmed/portfolio', 'https://github.com/Ahmed-Miled/dashboard2', '/images/project1.jpg'),
-      ('Shopping Cart', 'A modern e-commerce shopping cart built with React and JavaScript.', ARRAY['Featured', 'Web Dev', 'Full Stack'], 'https://github.com/Ahmed-Miled/Shopping-Cart', 'https://bie3-bie3.netlify.app/shop', '/images/project2.png'),
-      ('Memory Game', 'A fun memory matching game created with vanilla JavaScript.', ARRAY['Featured', 'Game', 'AI', 'Frontend'], 'https://github.com/Ahmed-Miled/MemoryCard', 'https://jeux-de-memoire.netlify.app/', '/images/project3.png'),
-      ('Tic Tac Toe', 'A classic Tic Tac Toe game implemented in HTML, CSS, and JavaScript.', ARRAY['Featured', 'Web Dev', 'Full Stack'], 'https://github.com/Ahmed-Miled/tic-tac-toe', 'https://ahmed-miled.github.io/tic-tac-toe/', '/images/project4.png');
+      ('Portfolio Website', 'My personal portfolio using React.', ARRAY['Frontend', 'Web Dev', 'Full Stack', 'Backend', 'Live'], 'https://github.com/Ahmed-Miled/dashboard2', 'https://github.com/Ahmed-Miled/dashboard2', '/images/project1.jpg'),
+      ('Shopping Cart', 'A modern e-commerce shopping cart built with React and JavaScript.', ARRAY['Web Dev', 'Frontend', 'Featured', 'Live'], 'https://github.com/Ahmed-Miled/Shopping-Cart', 'https://bie3-bie3.netlify.app/shop', '/images/project2.png'),
+      ('Memory Game', 'A classic memory matching game developed using vanilla JavaScript. This project demonstrates my proficiency in DOM manipulation and game logic implementation.', ARRAY['Featured', 'Game', 'Frontend', 'Live'], 'https://github.com/Ahmed-Miled/MemoryCard', 'https://jeux-de-memoire.netlify.app/', '/images/project3.png'),
+      ('Tic Tac Toe', 'A classic Tic Tac Toe game implemented in HTML, CSS, and JavaScript.', ARRAY['Game', 'Frontend', 'AI', 'Featured', 'Live'], 'https://github.com/Ahmed-Miled/tic-tac-toe', 'https://ahmed-miled.github.io/tic-tac-toe/', '/images/project4.png'),
+      ('CV Application', 'A CV builder that allows users to dynamically add, edit, and preview resume sections.', ARRAY['Frontend', 'Web Dev', 'Live'], 'https://github.com/Ahmed-Miled/CV-App', 'https://cvapplication-the-odin.netlify.app/', '/images/project5.png'),
+      ('Book Library', 'A book management UI concept. Live version coming soon.', ARRAY[]::TEXT[], 'https://github.com/Ahmed-Miled/bookLibrary', '', '/images/project6.png'),
+      ('Etch A Sketch', 'A sketch pad inspired by Etch A Sketch. Deployment coming soon.', ARRAY['Frontend', 'Game'], 'https://github.com/Ahmed-Miled/Etch-a-Sketch', '', '/images/project7.png'),
+      ('Heat Finder', 'A weather app prototype. Live version not yet available.', ARRAY['Frontend', 'Web Dev'], 'https://github.com/Ahmed-Miled/heatFinder', '', '/images/project8.png'),
+      ('Signup Form', 'A responsive signup form with form validation. Deployment pending.', ARRAY['Frontend', 'Web Dev'] , 'https://github.com/Ahmed-Miled/Sign-up-Form', '', '/images/project9.png');
+      
 
     -- Skills
     INSERT INTO skills (name, level, category)
     VALUES 
-      ('JavaScript', 'Advanced', 'Frontend'),
-      ('Node.js', 'Intermediate', 'Backend'),
-      ('PostgreSQL', 'Intermediate', 'Database');
+      ('HTML5, CSS3', 'Advanced', 'Frontend'),
+      ('JavaScript (ES6+)', 'Advanced', 'Frontend'),
+      ('Bootstrap', 'Advanced', 'Frontend'),
+      ('React.js', 'Intermediate ', 'Frontend'),
+
+      ('PHP (with PHPUnit testing)', 'Intermediate', 'Backend'),
+      ('Node.js', 'Beginner', 'Backend'),
+      ('Express.js', 'Beginner', 'Backend'),
+
+      ('MySQL', 'Intermediate', 'Database'),
+      ('PostgreSQL', 'Beginner', 'Database');
+
 
     -- Experience
     INSERT INTO experiences (title, company, start_date, end_date, description)
@@ -81,7 +96,27 @@ const seedData = async () => {
     -- Education
     INSERT INTO education (institution, degree, start_date, end_date, description)
     VALUES 
-      ('University of CS', 'Bachelor in CS', '2018-09-01', '2022-06-30', 'Learned programming and databases.');
+    (
+      'École Supérieure des Sciences et de la Technologie de Hammam Sousse (ESSTHS)',
+      'Licence en Génie Logiciel',
+      '2023-09-01',
+      '2025-06-30',
+      'Deuxième année d’un cursus intensif en génie logiciel validée. Développement réussi d’un projet de fin d’année full-stack.'
+    ),
+    (
+      'Lycée Secondaire de Sayada',
+      'Baccalauréat en sciences de l''informatique',
+      '2018-09-01',
+      '2023-06-30',
+      'Baccalauréat obtenu avec mention bien.'
+    ),
+    (
+      'Amideast Monastir',
+      'Programme "Access Microscholarship"',
+      '2014-09-01',
+      '2016-06-30',
+      'Programme intensif de deux ans en langue anglaise et culture américaine complété.'
+    );
   `);
 
   console.log('✅ Data seeded');
