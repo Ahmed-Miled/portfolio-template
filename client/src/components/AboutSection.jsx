@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function AboutSection() {
   return (
-    <section className="my-5">
+    <>
       <h2 className="mb-4">About Me</h2>
       <div className="card shadow-sm p-4 border-0 bg-light">
         <p className="lead mb-3">
@@ -28,6 +28,6 @@ export default function AboutSection() {
           collaborating with others to build impactful software.
         </p>
       </div>
-    </section>
+      </>
   );
 }

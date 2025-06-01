@@ -15,11 +15,10 @@ export default function App() {
 
   return (
     <Router>
-      <div className="container-fluid px-0 px-md-3">
+      <div className="container-fluid px-0 px-md-3 mt-4">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10">
-            <div className="d-flex flex-column flex-md-row" >
-              
+            <div className="d-flex flex-column flex-md-row">
               <div className="col-12 col-md-3 mb-4 mb-md-0">
                 <div
                   style={{
