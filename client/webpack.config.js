@@ -53,12 +53,6 @@ module.exports = (env, argv) => {
           logLevel: 'debug', // Optional: for more detailed proxy logging
           // pathRewrite: { '^/api': '' }, // Uncomment if backend routes don't start with /api
         },
-        // You can add more proxy configurations here if needed
-        // {
-        //   context: ['/auth'],
-        //   target: 'http://localhost:5001',
-        //   ...
-        // }
       ],
     },
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
