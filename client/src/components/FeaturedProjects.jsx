@@ -5,7 +5,8 @@ export default function FeaturedProjects() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('/services/api/projects')
+    //fetch('/services/api/projects')
+    fetch('https://your-backend-domain.com/services/api/projects')
       .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
       .then((data) => {
         // Filter projects that have 'Featured' tag
