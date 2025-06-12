@@ -1,7 +1,6 @@
 // client/src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useLocation } from "react-router-dom";
+import {  Routes, Route, useLocation } from 'react-router-dom';
 import { initGA, trackPageView } from "./analytics";
 
 import Sidebar from './components/Sidebar';
@@ -26,7 +25,6 @@ export default function App() {
   }, [location]);
 
   return (
-    <Router>
       <div className="container-fluid px-0 px-md-3 mt-4">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10">
@@ -60,6 +58,5 @@ export default function App() {
           </div>
         </div>
       </div>
-    </Router>
   );
 }
