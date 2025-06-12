@@ -1,6 +1,7 @@
 // client/webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === 'development';
@@ -33,7 +34,10 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './public/index.html',
-         filename: 'index.html',
+        filename: 'index.html',
+      }),
+      new CopyWebpackPlugin({
+        patterns: [{ from: 'public/_redirects', to: '' }],
       }),
     ],
     devServer: {
@@ -45,14 +49,12 @@ module.exports = (env, argv) => {
       open: true,
       historyApiFallback: true, // or { index: '/index.html' }
       proxy: [
-        // Ensure this is an array
         {
           context: ['/services/api'], // This is the key: define which paths to proxy
           target: 'http://localhost:5000', // Your backend server
-          secure: false, // If your backend is not HTTPS
-          changeOrigin: true, // Recommended for most cases
-          logLevel: 'debug', // Optional: for more detailed proxy logging
-          // pathRewrite: { '^/api': '' }, // Uncomment if backend routes don't start with /api
+          secure: false, 
+          changeOrigin: true,
+          logLevel: 'debug', 
         },
       ],
     },
