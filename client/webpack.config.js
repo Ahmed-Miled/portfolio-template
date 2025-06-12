@@ -35,6 +35,8 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
         filename: 'index.html',
+        title: 'Miled Portfolio',
+        favicon: './public/favicon.png'
       }),
       new CopyWebpackPlugin({
         patterns: [
