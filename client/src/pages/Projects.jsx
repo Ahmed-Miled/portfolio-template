@@ -20,7 +20,7 @@ export default function Projects() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('/services/api/projects')
+    fetch('https://portfolio-backend-xqxg.onrender.com/services/api/projects')
       .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
       .then((data) => {
         setProjects(data);
