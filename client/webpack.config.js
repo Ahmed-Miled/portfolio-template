@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
     mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.jsx',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../server/public'),
       filename: 'bundle.js',
       publicPath: '/',
       clean: true,
