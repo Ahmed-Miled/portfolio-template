@@ -1,6 +1,8 @@
 // client/src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import { initGA, trackPageView } from "./analytics";
 
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
@@ -12,6 +14,16 @@ import Home from './pages/Home';
 
 export default function App() {
   const [showNavbar, setShowNavbar] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
 
   return (
     <Router>
