@@ -112,10 +112,10 @@ You'll need to run the backend server and the frontend development server in sep
       cd server
       ```
 - Start the server:
-      ```bash
+    ```bash
     npm start
     ```
-      By default, the server will run on `http://localhost:3000` (or the `PORT` if specified in `server/.env`).
+  By default, the server will run on `http://localhost:3000` (or the `PORT` if specified in `server/.env`).
 
 2.  **Run the Frontend Development Server:**
   - Navigate to the `client/` directory:
