@@ -77,9 +77,6 @@ export default function Navbar({ isOpen, onClose }) {
           <NavLink to="/about" className={linkStyle} onClick={onClose}>
             About
           </NavLink>
-          <NavLink to="/contact" className={linkStyle} onClick={onClose}>
-            Contact
-          </NavLink>
           <ThemeToggle />
         </div>
 
@@ -96,9 +93,6 @@ export default function Navbar({ isOpen, onClose }) {
           </NavLink>
           <NavLink to="/about" className={linkStyle}>
             About
-          </NavLink>
-          <NavLink to="/contact" className={linkStyle}>
-            Contact
           </NavLink>
           <ThemeToggle />
         </div>

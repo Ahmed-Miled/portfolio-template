@@ -47,9 +47,6 @@ export default function HomeContent() {
           <Link to="/projects" className="btn btn-primary me-3">
             View Projects
           </Link>
-          <Link to="/contact" className="btn btn-outline-secondary">
-            Contact Me
-          </Link>
         </section>
       </section>
     </div>

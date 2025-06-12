@@ -7,7 +7,7 @@ export default function SkillsSection() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('/https://portfolio-backend-xqxg.onrender.com/ervices/api/skills')
+    fetch('https://portfolio-backend-xqxg.onrender.com/services/api/skills')
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
       .then((data) => {
         setSkills(data);
