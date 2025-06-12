@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
     mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.jsx',
     output: {
-      path: path.resolve(__dirname, '../server/public'),
+      path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
       publicPath: '/',
       clean: true,
@@ -33,6 +33,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './public/index.html',
+         filename: 'index.html',
       }),
     ],
     devServer: {
