@@ -37,7 +37,10 @@ module.exports = (env, argv) => {
         filename: 'index.html',
       }),
       new CopyWebpackPlugin({
-        patterns: [{ from: 'public/_redirects', to: '' }],
+        patterns: [
+          { from: 'public/_redirects', to: '' },
+          { from: 'public/images', to: 'images' },
+        ],
       }),
     ],
     devServer: {
@@ -52,9 +55,9 @@ module.exports = (env, argv) => {
         {
           context: ['/services/api'], // This is the key: define which paths to proxy
           target: 'http://localhost:5000', // Your backend server
-          secure: false, 
+          secure: false,
           changeOrigin: true,
-          logLevel: 'debug', 
+          logLevel: 'debug',
         },
       ],
     },
