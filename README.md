@@ -1,7 +1,17 @@
 # portfolio-template
-[Click here to view the live demo](https://ahmed-miled-portfolio.netlify.app) <br>
+
 
 A full-stack web application template designed to kickstart your portfolio projects. It features a React frontend with Webpack and a Node.js/Express backend connected to a PostgreSQL database. This template includes project-wide code formatting with Prettier.
+
+## Live Demo
+
+[Click here to view the live demo](https://ahmed-miled-portfolio.netlify.app) 
+
+## Repository
+
+[https://github.com/Ahmed-Miled/portfolio-template](https://github.com/Ahmed-Miled/portfolio-template)
+
+---
 
 ## Features
 
@@ -29,12 +39,17 @@ A full-stack web application template designed to kickstart your portfolio proje
   - JavaScript (ES6+)
   - Webpack
   - Babel
-  - Bootstrap
-  - HTML5, CSS3
+  - HTML5
+  - Framer Motion
+  - React Router
+  - React Icons  
 - **Server (Backend):**
   - Node.js
   - Express.js
   - PostgreSQL
+- **Styling :**
+  - Bootstrap 5
+  - CSS  
 - **Development & Tooling:**
   - **Prettier** (automated code formatting for the entire project)
   - Webpack Dev Server
@@ -43,94 +58,76 @@ A full-stack web application template designed to kickstart your portfolio proje
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (which includes npm) - ^18.x or ^20.x recommended
-- [PostgreSQL](https://www.postgresql.org/download/) - Ensure the PostgreSQL service is running.
-- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (v16+ recommended)  
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)  
+- PostgreSQL database (can use local or remote service)  
 
 ## Getting Started
 
-1.  **Use this Template:**
-    Click the "Use this template" button on the GitHub repository page to create a new repository based on this template.
+1. **Clone the repository**
 
-2.  **Clone your new repository:**
+```bash
+git clone https://github.com/Ahmed-Miled/portfolio-template.git
+cd portfolio-template
+```
 
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-    cd YOUR_REPOSITORY_NAME
-    ```
+2.  **Install Dependencies**
+    Run the following commands separately in the root, client, and server folders:
+    
+```bash
+npm install   
+npm install --prefix client
+npm install --prefix server
+```
 
-3.  **Install Root Dependencies:**
-    These include development tools like Prettier.
+  _Note: It's highly recommended to configure your code editor to use Prettier with "format on save" for an optimal development experience._
 
-    ```bash
-    npm install
-    ```
 
-    _It's highly recommended to configure your code editor to use Prettier with "format on save" for an optimal development experience. Open the root project folder in your editor._
+3.  **Configure environment variables**
 
-4.  **Setup the Backend (Server):**
+- Create a `.env` file inside the server folder with the following content: `DATABASE_URL=your_postgresql_connection_string`
 
-    - Navigate to the server directory:
-      ```bash
-      cd server
-      ```
-    - Install dependencies:
-      ```bash
-      npm install
-      ```
-    - Create a `.env` file in the `server/` directory by copying the example (if you create one) or by creating it manually. It should contain your PostgreSQL connection details:
-      ```env
-      # server/.env
-      DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@YOUR_DB_HOST:YOUR_DB_PORT/YOUR_DB_NAME"
-      PORT=5000
-      ```
-      Replace the placeholder values with your actual PostgreSQL credentials and desired port for the backend.
-    - (Optional) Seed the database:
-      Make sure your PostgreSQL server is running and the database specified in `DATABASE_URL` exists.
-      ```bash
-      npm run seed
-      ```
-      _Note: You might need to create the database manually first if the seed script doesn't handle it._
+- Replace your_postgresql_connection_string with your own PostgreSQL connection string.
 
-5.  **Setup the Frontend (Client):**
-    - Navigate to the client directory (from the root of your project):
-      ```bash
-      cd ../client
-      # or if you are in the root: cd client
-      ```
-    - Install dependencies:
-      ```bash
-      npm install
-      ```
+_Note: You might need to create the database manually first if the seed script doesn't handle it._
+
+
 
 ## Running the Application
 
-You'll need to run the backend server and the frontend development server in separate terminal windows.
+0.  **Seed the database (optional, but recommended for first setup):**
+
+In the root folder, run:
+```bash
+npm run seed --prefix server
+```
+This will populate your database with example portfolio data.
+
 
 1.  **Run the Backend Server:**
+You'll need to run the backend server and the frontend development server in separate terminal windows.
 
-    - Navigate to the `server/` directory:
+- Navigate to the `server/` directory:
       ```bash
       cd server
       ```
-    - Start the server:
-      `bash
+- Start the server:
+      ```bash
     npm start
-    `
-      By default, the server will run on `http://localhost:5000` (or the `PORT` specified in `server/.env`).
+    ```
+      By default, the server will run on `http://localhost:3000` (or the `PORT` if specified in `server/.env`).
 
 2.  **Run the Frontend Development Server:**
-    - Navigate to the `client/` directory:
+  - Navigate to the `client/` directory:
       ```bash
       cd client
       ```
-    - Start the development server:
-      `bash
+  - Start the development server:
+      ```bash
     npm start
-    `
-      This will typically open the application in your default web browser at `http://localhost:3000`. The client is configured to proxy API requests starting with `/api` to `http://localhost:5000` (see `client/webpack.config.js`).
+    ```
+      This will typically open the application in your default web browser at `http://localhost:3000`. The client is configured to proxy API requests starting with `/services/api` to `http://localhost:5000` (see `client/webpack.config.js`).
 
-## Available Scripts
 
 ### Root Project (`./package.json`)
 
@@ -160,19 +157,25 @@ You'll need to run the backend server and the frontend development server in sep
   - `devServer.proxy`: Configured to proxy requests from `/api` on the dev server (port 3000) to the backend server (port 5000).
 - **`client/package.json` (`proxy` field)**: While present, the `webpack.config.js` `devServer.proxy` is the active configuration for the development server started with `webpack serve`.
 
+## Customization
+
+- **Modifying portfolio data:** 
+To customize your portfolio content (projects, skills, education, contact info), modify the seed data in: `server/db/populatedb.js`
+After modifying, rerun the seed script to update your database: `npm run seed --prefix server`
+
+- **Frontend customization:** 
+
+The React client fetches data from the backend API. You can also customize UI components inside the `client/src` folder as needed.
+
 ## Directory Structure (Simplified)
 
-/portfolio-template <br>
-├── client/ <br>
-│ ├── public/<br>
-│ ├── src/<br>
-│ ├── package.json<br>
-│ └── webpack.config.js<br>
-├── server/ <br>
-│ ├── db/ <br>
-│ ├── .env # (You create this) <br>
-│ ├── package.json <br>
-│ └── server.js<br>
-├── .prettierrc.json<br>
-├── package.json<br>
-└── README.md<br>
+/portfolio-template  
+├── client/ # React frontend  
+├── server/# Express backend & database seed script  
+├── .prettierrc.json  
+├── package.json # Root package.json with main scripts  
+└── README.md  
+
+
+## Contact
+If you have questions or want to connect, feel free to reach out!
