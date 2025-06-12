@@ -1,6 +1,8 @@
 # portfolio-template
+[Click here to view the live demo](https://ahmed-miled-portfolio.netlify.app) <br>
 
 A full-stack web application template designed to kickstart your portfolio projects. It features a React frontend with Webpack and a Node.js/Express backend connected to a PostgreSQL database. This template includes project-wide code formatting with Prettier.
+
 
 ## Features
 
