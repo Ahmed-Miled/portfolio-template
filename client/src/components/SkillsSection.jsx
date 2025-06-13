@@ -1,10 +1,12 @@
 // client/src/components/SkillsSection.jsx
 import React, { useEffect, useState } from 'react';
 import SkillCard from './SkillCard';
+import Loading from './Loading';
 
 export default function SkillsSection() {
   const [skills, setSkills] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://portfolio-backend-xqxg.onrender.com/services/api/skills')
@@ -12,6 +14,7 @@ export default function SkillsSection() {
       .then((data) => {
         setSkills(data);
         setError('');
+        setLoading(false);
       })
       .catch((err) => {
         setSkills([]);
@@ -25,6 +28,8 @@ export default function SkillsSection() {
     acc[skill.category].push(skill);
     return acc;
   }, {});
+
+  if (loading) return <Loading message="Loading skills..." />;
 
   return (
     <section className="my-5">

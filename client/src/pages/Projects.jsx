@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProjectList from '../components/ProjectList';
 import PageWrapper from '../components/PageWrapper';
+import Loading from '../components/Loading';
 
 const TAGS = [
   'All',
@@ -18,6 +19,7 @@ export default function Projects() {
   const [filtered, setFiltered] = useState([]);
   const [activeTag, setActiveTag] = useState('All');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://portfolio-backend-xqxg.onrender.com/services/api/projects')
@@ -25,6 +27,7 @@ export default function Projects() {
       .then((data) => {
         setProjects(data);
         setFiltered(data);
+        setLoading(false);
       })
       .catch((err) => setError(`Failed to load: ${err}`));
   }, []);
@@ -35,6 +38,8 @@ export default function Projects() {
       tag === 'All' ? projects : projects.filter((p) => p.tags?.includes(tag))
     );
   };
+
+  if (loading) return <Loading message="Loading projects..." />;
 
   return (
     <div className="container mt-4">

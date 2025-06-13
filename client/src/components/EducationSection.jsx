@@ -1,15 +1,18 @@
 // client/src/components/EducationSection.jsx
 import React, { useEffect, useState } from 'react';
+import Loading from './Loading';
 
 export default function EducationSection() {
   const [education, setEducation] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://portfolio-backend-xqxg.onrender.com/services/api/education')
       .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
       .then((data) => {
         setEducation(data);
+        setLoading(false);
         setError('');
       })
       .catch((err) => {
@@ -17,6 +20,8 @@ export default function EducationSection() {
         setError('Could not load education history.');
       });
   }, []);
+
+  if (loading) return <Loading message="Loading education history..." />;
 
   return (
     <section className="my-5">
