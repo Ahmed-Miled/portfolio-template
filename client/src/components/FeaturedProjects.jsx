@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Loading from './Loading';
 
 export default function FeaturedProjects() {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://portfolio-backend-xqxg.onrender.com/services/api/projects')
@@ -14,11 +16,13 @@ export default function FeaturedProjects() {
         );
         // Take only first 3
         setProjects(featuredProjects.slice(0, 3));
+        setLoading(false);
       })
       .catch((err) => setError(`Failed to load: ${err}`));
   }, []);
 
   if (error) return <p className="text-danger">{error}</p>;
+  if (loading) return <Loading message="Loading featured projects..." />;
   if (!projects.length) return <p>Loading...</p>;
 
   return (
